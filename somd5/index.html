@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="md5免费破解,搜Md5,md5加密,md5解密,md5批量破解,sha1密码破解,mysql密码破解,dedecms密码破解,Discuz密码破解,mssql(2012) hash,ntlm hash"/>
+<meta name="description" content="MD5在线免费破解,支持md5,sha1,mysql,sha256,sha512,md4,织梦,vBulletin,Discuz,md5(Joomla),mssql(2012),ntlm,md5(base64),sha1(base64),md5(wordpress),md5(Phpbb3),md5(Unix),des(Unix)等数十种加密方式"/>
+<title>SOMD5</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<style>
+body,html{width:100%;height:100%;background-color:#f5f5f5}
+.main{width:700px;height:400px;position:absolute;top:50%;left:50%;margin-top:-250px;margin-left:-350px}
+.main-panel{margin-top:80px}
+.text-wrap{width:500px;min-height:100px;margin:30px auto;padding:20px 0;position:relative;clear:both;font-family:	SimHei,serif;font-size:50px;text-align:center;color:#5CB85C;font-weight:600}
+#footer nav{background-color:#dedede}
+</style>
+</head>
+<body>
+<div class="main">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="text-wrap">
+				输入让你无语的MD5
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="input-group input-group-lg">
+				<input type="text" id="hash" class="form-control" aria-label="..." name="hash">
+				<input type="hidden" id="captcha" name="captcha">
+				<div class="input-group-btn">
+					<button type="submit" id="crack" class="btn btn-success btn-lg search-btn" aria-haspopup="true" aria-expanded="false"><b>解密</b></button>
+				</div>
+			</div>
+		</div>
+		<div class="row main-panel">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-10">
+				<div id="color" class="panel panel-success">
+					<div class="panel-heading" id="ti">
+						查不到怎么办？
+					</div>
+					<div class="panel-body" id="re" style="word-wrap:break-word; word-break:break-all;display:block">
+						<small>查不到的，可以在首次查询后1小时内多次查询，有很大几率解开。(特别是其他站收费的)<br>2小时后仍解不开的可以在一周内持续关注，仍有机会解开。</small>
+						<br>
+						somd5是一个免费解密网站,<a href="/charge.html" target="_Blank" style="color: #FF0000">有大批量解密需求的兄弟请花点小钱支持一下</a>&nbsp<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=7c15e988e247395a7e90c362e5ab8e407919699d14fae7622bcc7305c41171e0"><img border="0" src="/image/group.png"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<div id="footer" class="container">
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+	<div>
+		<p class="navbar-text navbar-right" style="margin-right:30px;">
+			&copy; 2012-2018 SOMD5 All Rights Reserved.
+			<a href="/tijiao.php" target="_Blank">提交明文</a> | <a href="/plug.html" target="_Blank">浏览器插件</a> | <a href="/batch.html" target="_Blank" style="color: #FF0000">免费批量解密</a> | <a href="/download/dict/" target="_Blank">字典下载</a> | 豫ICP备17029147号-1
+		</p>
+	</div>
+	</nav>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.8.0/js/md5.min.js"></script>
+<script src="https://cdn.bootcss.com/js-sha1/0.4.1/sha1.min.js"></script>
+
+<script src="/captcha/clicaptcha.js?1019"></script>
+<link rel="stylesheet" href="/captcha/css/captcha.css">
+<script>
+function getCookie(cookieName) {
+	var strCookie = document.cookie;
+	var arrCookie = strCookie.split("; ");
+	for (var i = 0; i < arrCookie.length; i++) {
+		var arr = arrCookie[i].split("=");
+		if (cookieName == arr[0]) {
+			return arr[1];
+		}
+	}
+	return "";
+}
+function jiemi(hash, type, verify) {
+	$.post("search.php", {
+		hash: hash,
+		t: type,
+		captcha: verify
+	}, function(result) {
+		var error = result.err;
+		var datab = '结果';
+		switch (error) {
+		case 0:
+			$('#color').attr('class', 'panel panel-success');
+			var dataa = result.data;
+			var datab = result.type;
+			break;
+		case 1:
+			$('#color').attr('class', 'panel panel-warning');
+			$("#hash").focus();
+			var dataa = '请输入密文';
+			break;
+		case 2:
+			$('#color').attr('class', 'panel panel-warning');
+			var dataa = '此密文无法识别';
+			break;
+		case 3:
+			$('#color').attr('class', 'panel panel-danger');
+			var dataa = '破解失败,后台解密将在24小时内运行完毕,可以每隔几个小时来试试';
+			break;
+		case 4:
+			$('#color').attr('class', 'panel panel-danger');
+			var dataa = (result.data);
+			break;
+		case 5:
+			$('#color').attr('class', 'panel panel-danger');
+			var dataa = '验证失败,请重新点击查询';
+			//document.cookie = "verify=0";
+			break;
+		}
+		$("#re").html(dataa);
+		$("#ti").html(datab);
+	}, "json");
+}
+$(document).ready(function() {
+	$("#crack").click(function() {
+		hash = $("#hash").val();
+		hash = $.trim(hash);
+		type = $("#type").val();
+		
+		//var verify = getCookie("verify");
+		//if (1 != verify) {
+			$('#captcha').clicaptcha({
+				src: './captcha/clicaptcha.php',
+				callback: function() {
+					var verify = $('#captcha').val();
+					jiemi(hash, type, verify);
+				}
+			});
+			/*
+		} else {
+			jiemi(hash, type, 0);
+		}*/
+		//jiemi(hash, type, 0);
+		$("#re").html("解密中...");
+	});
+	$("#hash").keyup(function() {
+		pass = $("#hash").val();
+		pass = $.trim(pass);
+		var b = /^[a-fA-F0-9]{16}$|^[a-fA-F0-9]{20}$|^[0-9a-zA-Z.\/]{13}$|[A-Za-z0-9.\/\+]{22}(==)|^[A-Za-z0-9.\/\+]{27}(=)$|^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[0-9]{1,2})(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[0-9]{1,2})){3}$|^(ip|IP)$/;
+		if (pass.match(b) || pass.length > 31) {
+			$('#crack').attr("disabled", false);
+		} else {
+			$('#crack').attr("disabled", true);
+			hash = md5(pass);
+			sha1hash = sha1(pass);
+			data = "md5_16:" + hash.substr(8, 16) + "<br>md5:" + hash + "<br>sha1:" + sha1hash;
+			$("#re").html(data);
+			$.ajax({
+				url: 'tijiao.php?hash=' + encodeURIComponent(pass)
+			})
+		}
+	});
+	$("#hash").keyup(function(event) {
+		if (event.keyCode == 13) $("#crack").click();
+	});
+});
+$(function() {
+	$(".select-ul a").click(function(event) {
+		$(".search-select").text($(this).text());
+		$(".search-select").attr('name', $(this).attr('name'));
+		$(".endselect").attr('value', $(this).attr('name'));
+	});
+});
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7cbb4bb91b6ffb8d7caebd60d7652ff4";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</html>
