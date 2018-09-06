@@ -1,0 +1,32 @@
+.abv_mid {
+	position: absolute;
+	top:50px;
+	left: 50%;
+	width:1300px;
+	margin-left: -650px;
+}
+
+.logo_cls {
+	display: inline-flex;
+	margin-bottom: 20px;
+}
+
+.logo_cls img {
+	width: 110px;
+    height: 110px;
+}
+
+.logo_cls h1 {
+	    /* line-height: 110px; */
+    margin-left: 50px;
+}
+
+.layui-tab-title {
+	color:#1E9FFF;
+}
+
+.layui-this {
+	color: white !important;
+    background-color: #1E9FFF;
+       /* border-radius: 12px 12px 0 0;*/
+}

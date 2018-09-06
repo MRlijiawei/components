@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>资源搜索</title>
+		
+		<link rel="stylesheet" href="./plugins/layui/css/layui.css">
+		<script type="text/javascript" charset="utf-8" src="./plugins/layui/layui.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/layui/layui.all.js"></script>
+		<link rel="stylesheet" href="./searching.css">
+		<script type="text/javascript" charset="utf-8" src="./searching.js"></script>
+	</head>
+
+	<body>
+		<div class="abv_mid">
+			<div class="logo_cls">
+				<img src="./res/search.png">
+				<h1>资源搜索</h1>
+			</div>
+			<div class="searching_cls">
+				<div>
+					<span>知识点数</span>
+					<span>资源数</span>
+				</div>
+				<!-- <div>layui 学科 tab</div> -->
+				<div class="layui-tab" lay-filter="test" style="margin-bottom: 0px">
+				  <ul class="layui-tab-title" style="margin-bottom: -1px;">
+				    <li class="layui-this" lay-id="2">全部学科</li>
+				    <li lay-id="1">初中语文</li>
+				    <li lay-id="2">初中数学</li>
+				    <li lay-id="3">初中英语</li>
+				    <li lay-id="4">初中物理</li>
+				    <li lay-id="5">初中化学</li>
+				    <li lay-id="6">思想品德</li>
+				  </ul>
+				  <div class="layui-tab-content" style="display: none;">
+				    <div class="layui-tab-item layui-show">
+				      点击该Tab的任一标题，观察地址栏变化，再刷新页面。选项卡将会自动定位到上一次切换的项
+				    </div>
+				    <div class="layui-tab-item">内容2</div>
+				    <div class="layui-tab-item">内容3</div>
+				    <div class="layui-tab-item">内容4</div>
+				    <div class="layui-tab-item">内容5</div>
+				  </div>
+				</div>
+				<div style="display: inline-flex;">
+					<input type="" name="" class="layui-input" style="width:1245px">
+					<button class="layui-btn layui-btn-normal" style="width: 55px;z-index: 1;">Go!</button>
+				</div>
+			</div>
+			<div class="knowladge_cls">知识点
+				<div class="knowladge_content"></div>
+				<div id="knowladgePage"></div>
+			</div>
+			<div>当前条件：</div>
+			<div class="content_cls">搜索结果
+				<div class="content_inner"></div>
+				<div id="contentPage"></div>
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,118 @@
+{
+	courses:[
+		{
+			courseName:"所有学科",
+			courseCode:"0"
+		},{
+			courseName:"初中语文",
+			courseCode:"1"
+		},{
+			courseName:"初中数学",
+			courseCode:"2"
+		},{
+			courseName:"初中英语",
+			courseCode:"3"
+		},{
+			courseName:"初中物理",
+			courseCode:"4"
+		},{
+			courseName:"初中化学",
+			courseCode:"5"
+		},{
+			courseName:"思想品德",
+			courseCode:"6"
+		}
+	],
+
+	knowladges:[
+		//null表示未分科？
+		{course:null,resources:["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],knowladgeName:"好好学习",knowladgeId:"1"},
+		{course:"1",resources:["16","17"],knowladgeName:"天天向上",knowladgeId:"2"},
+		{course:"1",resources:["18","19"],knowladgeName:"唐诗",knowladgeId:"3"},
+		{course:"1",resources:["20","21","22"],knowladgeName:"宋词",knowladgeId:"4"},
+
+		{course:"2",resources:["23"],knowladgeName:"勾股定理",knowladgeId:"5"},
+		{course:"2",resources:["24"],knowladgeName:"代数方程",knowladgeId:"6"},
+		{course:"2",resources:["25","26","27"],knowladgeName:"多边形面积与体积计算",knowladgeId:"7"},
+
+		{course:"3",resources:["28","29"],knowladgeName:"日常英语",knowladgeId:"8"},
+		{course:"3",resources:["30","31"],knowladgeName:"英语口语",knowladgeId:"9"},
+
+		{course:"4",resources:["32"],knowladgeName:"杠杆定理",knowladgeId:"10"},
+		{course:"4",resources:["33","34"],knowladgeName:"重力与加速度",knowladgeId:"11"},
+
+		{course:"5",resources:["35","36","37"],knowladgeName:"分子与原子",knowladgeId:"12"},
+		{course:"5",resources:["38","39"],knowladgeName:"燃烧反应",knowladgeId:"13"},
+
+		{course:"6",resources:["40","41","42","43","44","45","46","47","48","49","50","51"],knowladgeName:"时事政治",knowladgeId:"14"},
+		{course:"6",resources:["52","53"],knowladgeName:"人与社会",knowladgeId:"15"}
+	],
+
+	data:[
+		//资源类型：1文章，2文档，3多媒体，4网站平台,5其他
+		{resourceId:"1",resourceName:"学习的重要性.ppt",resourceType:"2"},
+		{resourceId:"2",resourceName:"论怎样学习.txt",resourceType:"2"},
+		{resourceId:"3",resourceName:"在学校要尊敬老师",resourceType:"1"},
+		{resourceId:"4",resourceName:"要尊重同学",resourceType:"1"},
+		{resourceId:"5",resourceName:"要互帮互助",resourceType:"1"},
+		{resourceId:"6",resourceName:"怎样让别人喜欢你.pdf",resourceType:"2"},
+		{resourceId:"7",resourceName:"卡耐基成功学.doc",resourceType:"2"},
+		{resourceId:"8",resourceName:"十万个为什么",resourceType:"1"},
+		{resourceId:"9",resourceName:"怎样让别人尊重你.mp3",resourceType:"3"},
+		{resourceId:"10",resourceName:"养成良好的学习和作息习惯.mp4",resourceType:"3"},
+		{resourceId:"11",resourceName:"高效学习",resourceType:"1"},
+		{resourceId:"12",resourceName:"学习方法总结",resourceType:"1"},
+		{resourceId:"13",resourceName:"学习论坛",resourceType:"4"},
+		{resourceId:"14",resourceName:"资料共享",resourceType:"4"},
+		{resourceId:"15",resourceName:"怎样和他人打交道.zip",resourceType:"5"},
+
+		{resourceId:"16",resourceName:"学习语文的重要性",resourceType:"1"},
+		{resourceId:"17",resourceName:"初中语文学习大纲.ppt",resourceType:"2"},
+		{resourceId:"18",resourceName:"春晓.mp3",resourceType:"3"},
+		{resourceId:"19",resourceName:"李白诗歌鉴赏",resourceType:"1"},
+		{resourceId:"20",resourceName:"雨霖铃.mp3",resourceType:"3"},
+		{resourceId:"21",resourceName:"宋词音律.ppt",resourceType:"2"},
+		{resourceId:"22",resourceName:"宋词鉴赏",resourceType:"1"},
+
+		{resourceId:"23",resourceName:"勾股定理及其应用",resourceType:"1"},
+		{resourceId:"24",resourceName:"N元N次方程运算.ppt",resourceType:"2"},
+		{resourceId:"25",resourceName:"三角形面积与体积运算.ppt",resourceType:"2"},
+		{resourceId:"26",resourceName:"四边形面积与体积运算.ppt",resourceType:"2"},
+		{resourceId:"27",resourceName:"N边形面积与体积运算.ppt",resourceType:"2"},
+
+		{resourceId:"28",resourceName:"基础英语单词词组.doc",resourceType:"2"},
+		{resourceId:"29",resourceName:"基础英语句式.ppt",resourceType:"2"},
+		{resourceId:"30",resourceName:"口语交际.mp4",resourceType:"3"},
+		{resourceId:"31",resourceName:"英语听力.mp3",resourceType:"3"},
+
+		{resourceId:"32",resourceName:"杠杆定理及其应用",resourceType:"1"},
+		{resourceId:"33",resourceName:"重力与超重失重.ppt",resourceType:"2"},
+		{resourceId:"34",resourceName:"加速运动我赞成练习题.doc",resourceType:"2"},
+
+		{resourceId:"35",resourceName:"分子运动.mp4",resourceType:"3"},
+		{resourceId:"36",resourceName:"原子运动.mp4",resourceType:"3"},
+		{resourceId:"37",resourceName:"原子弹制作原理",resourceType:"1"},
+		{resourceId:"38",resourceName:"点燃一只酒精灯",resourceType:"1"},
+		{resourceId:"39",resourceName:"卖火柴的小女孩.ppt",resourceType:"2"},
+
+		{resourceId:"40",resourceName:"滴滴半年巨亏40亿",resourceType:"1"},
+		{resourceId:"41",resourceName:"蒋聘婷 刘强东",resourceType:"1"},
+		{resourceId:"42",resourceName:"姆巴佩禁赛",resourceType:"1"},
+		{resourceId:"43",resourceName:"武汉大学小白狐.mp4",resourceType:"3"},
+		{resourceId:"44",resourceName:"李明博判刑20年",resourceType:"1"},
+		{resourceId:"45",resourceName:"匿名痛骂特朗普",resourceType:"1"},
+		{resourceId:"46",resourceName:"井柏然回怼粉丝",resourceType:"1"},
+		{resourceId:"47",resourceName:"日工人核辐射致死",resourceType:"1"},
+		{resourceId:"48",resourceName:"惊奇队长剧照",resourceType:"1"},
+		{resourceId:"49",resourceName:"校园暴力报告.ppt",resourceType:"2"},
+		{resourceId:"50",resourceName:"北海道发生强震",resourceType:"1"},
+		{resourceId:"51",resourceName:"薛之谦晒娃被批",resourceType:"1"},
+		{resourceId:"52",resourceName:"富士康宿舍凶杀案",resourceType:"1"},
+		{resourceId:"53",resourceName:"人与社会的关系.ppt",resourceType:"2"},
+		
+		{resourceId:"54",resourceName:"",resourceType:""},
+		{resourceId:"55",resourceName:"",resourceType:""},
+		{resourceId:"56",resourceName:"",resourceType:""},
+		{resourceId:"57",resourceName:"",resourceType:""}
+	]
+}
