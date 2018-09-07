@@ -30,3 +30,59 @@
     background-color: #1E9FFF;
        /* border-radius: 12px 12px 0 0;*/
 }
+
+.knowledgeTotal {
+	display: none;
+}
+
+.contentTotal {
+	display: none;
+}
+
+#knowledgeNum, #contentNum {
+	    font-weight: bold;
+    color: red;
+        font-size: 16px;
+}
+
+.knowledge_cls {
+	margin-bottom:30px;
+}
+
+.knoledge_list {
+	display: inline-flex;
+}
+
+.knowledge_single {
+	border: 1px solid green;
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 120px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+        margin: 0 5px 5px 0;
+}
+
+.req_cls,.res_types {
+	margin-bottom: 20px;
+}
+
+.res_types h5 {
+	display: inline-block;
+}
+
+.req_cls,.res_types span {
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.starc-this {
+    background-color: #1E9FFF !important;
+    border: 1px solid #1E9FFF !important;
+}
