@@ -2,13 +2,9 @@ layui.use(['element', 'table'],  function(){
   var $ = layui.jquery
   ,element = layui.element;
   table = layui.table;
-  //Hash地址的定位
-  var layid = location.hash.replace(/^#test=/, '');
-  //未生效？
-  element.tabChange('test', layid);
   
   element.on('tab(test)', function(elem){
-    //location.hash = 'test='+ $(this).attr('lay-id');
+    location.hash = 'test='+ $(this).attr('lay-id');
 	//点击当前不处理
 	if(searchCourse == $(this).attr("lay-id")) {
 		return;
@@ -28,6 +24,9 @@ layui.use(['element', 'table'],  function(){
 		selResType = "0";
 	}
   });
+  //Hash地址的定位
+  var layid = location.hash.replace(/^#test=/, '');
+  element.tabChange('test', layid);
   
   $(document).on("keyup", "input[name='keyWord']", function(e){
 	  //回车搜索

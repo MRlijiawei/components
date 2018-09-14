@@ -18,7 +18,6 @@
 		<script type="text/javascript" charset="utf-8" src="${webRoot}template/searching/plugins/layui/layui.all.js?build-revision=${svn.revision}"></script>
 		<script type="text/javascript" charset="utf-8" src="${webRoot}template/searching/plugins/jquery-3.3.1.min.js?build-revision=${svn.revision}"></script>
 		<link rel="stylesheet" href="${webRoot}template/searching/searching.css?build-revision=${svn.revision}">
-		<script type="text/javascript" charset="utf-8" src="${webRoot}template/searching/searching.js?build-revision=${svn.revision}"></script>
 	</head>
 	<body>
 		<div class="abv_mid">
@@ -40,17 +39,7 @@
 				    <li lay-id="3">初中英语</li>
 				    <li lay-id="4">初中物理</li>
 				    <li lay-id="5">初中化学</li>
-				    <li lay-id="6">思想品德</li>
 				  </ul>
-				  <div class="layui-tab-content" style="display: none;">
-				    <div class="layui-tab-item layui-show">
-				      点击该Tab的任一标题，观察地址栏变化，再刷新页面。选项卡将会自动定位到上一次切换的项
-				    </div>
-				    <div class="layui-tab-item">内容2</div>
-				    <div class="layui-tab-item">内容3</div>
-				    <div class="layui-tab-item">内容4</div>
-				    <div class="layui-tab-item">内容5</div>
-				  </div>
 				</div>
 				<div style="display: inline-flex;">
 					<input type="text" name="keyWord" class="layui-input" style="width:1245px">
@@ -109,5 +98,6 @@
 					</script>
 		</div>
 	</body>
+		<script type="text/javascript" charset="utf-8" src="${webRoot}template/searching/searching.js?build-revision=${svn.revision}"></script>
 
 </html>
