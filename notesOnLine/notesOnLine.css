@@ -1,0 +1,122 @@
+.cover_class {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	background-color: white;
+	top: 0px;
+    left: 0px;
+    z-index: 930819;
+}
+
+.choose_class {
+	border: 1px dashed red;
+	position: absolute;
+    z-index: 930820;
+    display: none;
+}
+
+.text_class {
+	position: absolute;
+    z-index: 930821;
+    display: none;
+}
+
+.menu_first {
+	position: absolute;
+	top: 40px;
+	left: 20px;
+	/*background-color: #61b49a;*/
+	color: white;
+}
+
+.menu_first li {
+	cursor: pointer;
+	font-size: 12px;
+	border: 1px solid;
+	border-radius: 4px;
+	padding: 2px;
+}
+
+.menu_first .disabled {
+	color: gray;
+}
+
+.menu_first li:hover {
+	background: white;
+	color: black;
+}
+
+.menu_first .disabled:hover {
+	color: gray;
+	background: initial;
+}
+
+.menu_first div {
+	border: 2px solid #fe8402;
+	border-radius: 5px;
+	padding: 5px;
+	margin-top: 10px;
+	background: black;
+	box-shadow: inset 0px 0px 2px 2px #fe8402;
+}
+
+.menu_first span {
+	font-weight: bold;
+    font-size: 14px;
+    color: aquamarine;
+}
+
+.img_container {
+	overflow-y: auto;
+    overflow-x: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.img_doc_body {
+	overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    z-index: -5;
+}
+
+#finalCanvas {
+	position: absolute;
+	top: 9999px;
+	left: 9999px;
+}
+
+.text_buttons {
+	position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    min-width: 100px;
+}
+
+.text_buttons .text_confirm {
+	float: left;
+}
+.text_buttons .text_cancel {
+	float: right;
+}
+
+.text_class textarea {
+	min-width: 100px;
+    min-height: 40px;
+    font-size: 14px;
+        word-break: break-all;
+}
+
+.translating_class {
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -80px;
+	margin-bottom: 10px;
+	font-size: 20px;
+}

@@ -1,0 +1,53 @@
+<html>
+	<head>
+        <title>Cookie 可视化管理</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    </head>
+    <body>
+    	<div id="buttons">
+	    	<button onclick="previewCookie()">查看cookie</button><br>
+	    	键：<input id="toAddKey">
+	    	值：<input id="toAddValue">
+	    	<button onclick="addCookie()">添加cookie</button>
+    	</div>
+    	<div id="table">
+    		<table>
+    			<thead>
+    				<tr>
+    					<th>序号</th>
+    					<th>键</th>
+    					<th>值</th>
+    					<th>操作</th>
+    				</tr>
+    			</thead>
+    			<tbody id="tbody"></tbody>
+    		</table>
+    	</div>
+    </body>
+    <script type="text/javascript" src="./cookieManager.js"></script>
+    <script type="text/javascript">
+    	function previewCookie() {
+    		var f = document.getElementById("tbody");
+    		emptyNodes(f);
+    		var innerHtml = "";
+    		for(var i=0;i<cookieStorage.length;i++) {
+    			innerHtml += "<tr><td>" + (i+1) + "</td><td>" + cookieStorage.key(i) + "</td><td>" + cookieStorage.value(i) + "</td><td><a onclick='deleteCookie(" + i + ")'>删除</a></td></tr>";
+    		}
+    		f.append(innerHtml);
+    	}
+    	function addCookie() {
+    		if(!document.querySelector("#toAddKey").value || !document.querySelector("#toAddValue").value) {
+    			alert("Empty input");
+    			return;
+    		}
+    		cookieStorage.setItem(document.querySelector("#toAddKey").value, document.querySelector("#toAddValue").value);
+    	}
+
+    	function emptyNodes(el) {
+    		var childs = el.childNodes;
+    		for(var i = childs.length - 1; i >= 0; i--) { 
+				el.removeChild(childs[i]); 
+			}
+    	}
+    </script>
+</html>
