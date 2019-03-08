@@ -1,0 +1,47 @@
+1.
+<script type="text/javascript">
+/* 鼠标特效 */
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+        var a = new Array("?富强?","?民主?","?文明?","?和谐?","?自由?","?平等?","?公正?","?法治?","?爱国?","?敬业?","?诚信?","?友善?");
+        var $i = $("<span></span>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+        });
+        $("body").append($i);
+        $i.animate({
+            "top": y - 180,
+            "opacity": 0
+        },
+        1500,
+        function() {
+            $i.remove();
+        });
+    });
+});
+
+2.
+// 浏览器标题切换  
+var OriginTitile = document.title;    // 保存之前页面标题  
+var titleTime;  
+document.addEventListener('visibilitychange', function(){  
+    if (document.hidden){  
+        document.title ='I am here! QwQ';  
+        clearTimeout(titleTime);  
+    }else{  
+        document.title = '你回来啦 QvQ ~(o°ω°o) happy ';  
+        titleTime = setTimeout(function() {  
+            document.title = OriginTitile;  
+        }, 1000); // 2秒后恢复原标题  
+    }  
+});  
+</script>
