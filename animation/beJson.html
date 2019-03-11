@@ -1,0 +1,168 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+		</title>
+		<style>
+			.tag { background: url("//ww1.sinaimg.cn/large/7fa0b485jw1e25sq4tl7mj.jpg")
+			no-repeat scroll 0 0 transparent; color: #3F3F3F; float: left; height:
+			25px; line-height: 1; margin: 8px; padding: 0 8px; position: relative;
+			text-decoration: none; white-space: nowrap; z-index: 1; font-size:13px;
+			} .tag_name { background: url(//ssl-static.hellojava.com/7fa0b485jw1e25sq4tl7mj.jpg)
+			no-repeat 100% -25px; height: 19px; padding: 6px 10px 0 0; position: relative;
+			text-shadow: 0 1px 1px #fff; z-index: 10; } .tag span { display: block;
+			float: left; cursor: pointer;} .tag_count { background: url(//ssl-static.hellojava.com/7fa0b485jw1e25sq4tl7mj.jpg)
+			no-repeat 100% -50px; color: #fff; height: 19px; padding: 5px 10px 0; position:
+			absolute; right: 0; text-shadow: 0 -1px 0 #c54a0c; top: 1px; z-index: 5;
+			} h4{font-size:15px;}
+		</style>
+		<script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js">
+		</script>
+	</head>
+	<body>
+		<div class="setfarme" style="overflow:hidden;">
+			<h4>
+				Bejson的日常:
+			</h4>
+			<div style="overflow:hidden; width:100%; padding:2px 10px 20px 10px;"
+			id="qrichang">
+			</div>
+			<h4>
+				Java:
+			</h4>
+			<div style="overflow:hidden; width:100%; padding:2px 10px 20px 10px;"
+			id="qjava">
+			</div>
+			<h4>
+				PHP:
+			</h4>
+			<div style="overflow:hidden; width:100%; padding:2px 10px 20px 10px;"
+			id="qphp">
+			</div>
+			<h4>
+				CSharp:
+			</h4>
+			<div style="overflow:hidden; width:100%; padding:2px 10px 20px 10px;"
+			id="qcsharp">
+			</div>
+			<script>
+				var java = [
+					{
+						't': 'Java菜鸟社区',
+						'n': '294557894',
+						'k':'2c6fc24b07e86aa1956970f301f36e311f25d4bccf60f5891ff4a00f369f6a1e',
+						'd': ''
+					},
+					{
+						't': 'Java学习交流群',
+						'n': '2399645',
+						'k':'8772598e1ad8724e6efb717379167f2df808709da43f9a20e750f6ac66bbcd6f',
+						'd': ''
+					},
+					{
+						't': '被Java蹂躏的岁月(新群)',
+						'n': '7637807',
+						'k':'b9d8290dd4a352935c423565e450e138d6a4936aa0c085edc4daf8258f033634',
+						'd': ''
+					}
+				];
+
+				var php = [
+
+				{
+					't': 'PHP学习交流群',
+					'n': '308021683',
+					'k':'318e0a980c261ac5a5fb31e6a42bf7fe26e02436e826b6996663403d5db27841',
+					'd': ''
+				}
+
+				];
+
+				var csharp = [
+					
+					{
+					't': 'C#学习交流群',
+					'n': '256718021',
+					'k':'cd98873bad2022a070c705cada3b87dd34589aec3e8960fdf5f7cc8780c1848d',
+					'd': ''
+				}
+				];
+				
+				var richang = [
+					
+					{
+					't': 'BeJSON一群',
+					'n': '238329389',
+					'k':'5da9cd7020d2a5d5ea81f4840b2b2a633d9c68a6e15676e265104918cf432394',
+					'd': ''
+				},{
+					't': 'BeJSON二群',
+					'n': '274298671',
+					'k':'39d693352eb6972a427c246d6e9298bf6530c747cf9a42cd11893138a97d2408',
+					'd': ''
+				}
+				];
+				
+				function parse(j,d){
+						var str = "";
+
+					for (var i = 0; i < j.length; i++) {
+
+						var d1 = j[i];
+
+						if (d1.d == '') {
+
+							d1.d = d1.t;
+
+						}
+
+						str += '<div class="tag" key="'+d1.k+'" title="' + d1.d + '"><span class="tag_name">' + d1.d + '</span><span key="'+d1.k+'" class="tag_count">(' + d1.n + ')</span></div>'
+
+					}
+
+					$(d).html(str);
+				}
+				$(window).load(function() {
+
+					parse(java,qjava);
+					parse(php,qphp);
+					parse(csharp,qcsharp);
+					parse(richang,qrichang);
+					$('.tag').hover(function() {
+
+						$(this).stop().animate({
+							paddingRight: ($('.tag_count', this).outerWidth() - 5)
+						},
+						'easeInOutExpo');
+
+					},
+					function() {
+
+						$(this).stop().animate({
+							paddingRight: 6
+						},
+						'easeInOutExpo');
+
+					});
+
+				});
+			</script>
+			<script type="text/javascript">
+				setTimeout('appendClick()', 1000);
+
+				function appendClick() {
+
+					$(".tag").click(function() {
+						window.open('//shang.qq.com/wpa/qunwpa?idkey='+$(this).attr("key"))
+						//window.prompt("请复制QQ群号", $(this).text().replace("(", "").replace(")", ""));
+
+					});
+
+					//beforeCopy afterCopy 是可选项 									   
+
+				};
+			</script>
+			
+	</body>
+
+</html>
