@@ -1,0 +1,144 @@
+<p style="font-size:8px;">若动画不显示，请查看地址栏首尾是否被浏览器拦截<p>
+<object type="application/x-shockwave-flash" style="outline:none;" data="http://cdn.abowman.com/widgets/hamster/hamster.swf?up_bodyColor=f0e9cc&amp;up_feetColor=D4C898&amp;up_eyeColor=000567&amp;up_wheelSpokeColor=DEDEDE&amp;up_wheelColor=FFFFFF&amp;up_waterColor=E0EFFF&amp;up_earColor=b0c4de&amp;up_wheelOuterColor=FF4D4D&amp;up_snoutColor=F7F4E9&amp;up_bgColor=F0E4E4&amp;up_foodColor=cba920&amp;up_wheelCenterColor=E4EB2F&amp;up_tailColor=E6DEBE&amp;" width="200" height="160">
+<param name="movie" value="http://cdn.abowman.com/widgets/hamster/hamster.swf?up_bodyColor=f0e9cc&amp;up_feetColor=D4C898&amp;up_eyeColor=000567&amp;up_wheelSpokeColor=DEDEDE&amp;up_wheelColor=FFFFFF&amp;up_waterColor=E0EFFF&amp;up_earColor=b0c4de&amp;up_wheelOuterColor=FF4D4D&amp;up_snoutColor=F7F4E9&amp;up_bgColor=F0E4E4&amp;up_foodColor=cba920&amp;up_wheelCenterColor=E4EB2E&amp;up_tailColor=E6DEBE&amp;">
+<param name="AllowScriptAccess" value="always">
+<param name="wmode" value="opaque"></object>
+<p style="color: #3E8BD6;font-size: 9pt;">主人说：喜欢的大佬可以点个关注</p>
+<p id="showAp">领红包</p>
+<div id="hiddenAp"><img id="apImg" src="https://images2018.cnblogs.com/blog/1348134/201808/1348134-20180815145319467-101544305.jpg"><button id="hideAp">关闭</button></div>
+<div id="bgloading"></div>
+<script>
+$("#showAp").click(function(){
+$("#bgloading").show();
+$("#hiddenAp").show();
+})
+$("#hideAp").click(function(){
+$("#hiddenAp").hide();
+$("#bgloading").hide();
+})
+;(function(window,document,undefined){
+
+                var hearts = [];
+                window.requestAnimationFrame = (function(){
+                        return window.requestAnimationFrame || 
+                                   window.webkitRequestAnimationFrame ||
+                                   window.mozRequestAnimationFrame ||
+                                   window.oRequestAnimationFrame ||
+                                   window.msRequestAnimationFrame ||
+                                   function (callback){
+                                           setTimeout(callback,1000/60);
+                                   }
+                })();
+                init();
+                function init(){
+                        css(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+                        attachEvent();
+                        gameloop();
+                }
+                function gameloop(){
+                        for(var i=0;i<hearts.length;i++){
+                            if(hearts[i].alpha <=0){
+                                    document.body.removeChild(hearts[i].el);
+                                    hearts.splice(i,1);
+                                    continue;
+                            }
+                            hearts[i].y--;
+                            hearts[i].scale += 0.004;
+                            hearts[i].alpha -= 0.013;
+                            hearts[i].el.style.cssText = "left:"+hearts[i].x+"px;top:"+hearts[i].y+"px;opacity:"+hearts[i].alpha+";transform:scale("+hearts[i].scale+","+hearts[i].scale+") rotate(45deg);background:"+hearts[i].color;
+                    }
+                    requestAnimationFrame(gameloop);
+                }
+                function attachEvent(){
+                        var old = typeof window.onclick==="function" && window.onclick;
+                        window.onclick = function(event){
+                            event = window.event || e
+
+                            //old && old();
+                            createHeart(event);
+                        }
+                }
+                function createHeart(event){
+
+                    var d = document.createElement("div");
+                    d.className = "heart";
+
+                    hearts.push({
+                            el : d,
+                            x : event.clientX - 5,
+                            y : event.clientY - 5,
+                            scale : 1,
+                            alpha : 1,
+                            color : randomColor()
+                    });
+                    document.body.appendChild(d);
+            }
+            function css(css){
+                    var style = document.createElement("style");
+                        style.type="text/css";
+                        try{
+                            style.appendChild(document.createTextNode(css));
+                        }catch(ex){
+                            style.styleSheet.cssText = css;
+                        }
+                        document.getElementsByTagName('head')[0].appendChild(style);
+            }
+                function randomColor(){
+                        return "rgb("+(~~(Math.random()*255))+","+(~~(Math.random()*255))+","+(~~(Math.random()*255))+")";
+                }
+        })(window,document);
+</script>
+<script language="javascript" type="text/javascript">
+// 生成目录索引列表
+function GenerateContentList()
+{
+    var mainContent = $('#cnblogs_post_body');
+    var h2_list = $('#cnblogs_post_body h2');//如果你的章节标题不是h2,只需要将这里的h2换掉即可
+
+    if(mainContent.length < 1)
+        return;
+ 
+    if(h2_list.length>0)
+    {
+        var content = '<a name="_labelTop"></a>';
+        content += '<div id="navCategory">';
+        content += '<p style="font-size:18px"><b>目录</b></p>';
+        content += '<ul>';
+        for(var i=0; i<h2_list.length; i++)
+        {
+            var go_to_top = '<div style="text-align: right"><a href="#_labelTop">回到顶部</a><a name="_label' + i + '"></a></div>';
+            $(h2_list[i]).before(go_to_top);
+            
+            var h3_list = $(h2_list[i]).nextAll("h3");
+            var li3_content = '';
+            for(var j=0; j<h3_list.length; j++)
+            {
+                var tmp = $(h3_list[j]).prevAll('h2').first();
+                if(!tmp.is(h2_list[i]))
+                    break;
+                var li3_anchor = '<a name="_label' + i + '_' + j + '"></a>';
+                $(h3_list[j]).before(li3_anchor);
+                li3_content += '<li><a href="#_label' + i + '_' + j + '">' + $(h3_list[j]).text() + '</a></li>';
+            }
+            
+            var li2_content = '';
+            if(li3_content.length > 0)
+                li2_content = '<li><a href="#_label' + i + '">' + $(h2_list[i]).text() + '</a><ul>' + li3_content + '</ul></li>';
+            else
+                li2_content = '<li><a href="#_label' + i + '">' + $(h2_list[i]).text() + '</a></li>';
+            content += li2_content;
+        }
+        content += '</ul>';
+        content += '</div><p>&nbsp;</p>';
+        content += '<p style="font-size:18px"><b>正文</b></p>';
+        if($('#cnblogs_post_body').length != 0 )
+        {
+            $($('#cnblogs_post_body')[0]).prepend(content);
+        }
+    }   
+
+    // var qqinfo =  '<p style="color:navy;font-size:12px">讨论QQ群：135202158</p>';
+    // $(mainContent[0]).prepend(qqinfo);
+}
+GenerateContentList();
+</script>

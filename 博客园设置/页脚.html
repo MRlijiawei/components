@@ -1,0 +1,253 @@
+<div style="background:#fff url('https://images2018.cnblogs.com/blog/1348134/201808/1348134-20180809162905395-2105336004.gif') no-repeat;height:100px;width:100%;    background-size: cover;display:none"></div>
+<script>
+$("#navList li").mouseover(function(){
+$(this).fadeOut().fadeIn();
+});
+$(".postTitle2").mouseover(function(){
+$(this).fadeOut().fadeIn();
+});
+//title设置
+// 浏览器标题切换  
+var OriginTitile = document.title;    // 保存之前页面标题  
+var titleTime;  
+document.addEventListener('visibilitychange', function(){  
+    if (document.hidden){  
+        document.title ='I am here! Q~~Q';  
+        clearTimeout(titleTime);  
+    }else{  
+        document.title = 'Welcome (o°ω°o) happy ';  
+        titleTime = setTimeout(function() {  
+            document.title = OriginTitile;  
+        }, 1000); // 2秒后恢复原标题  
+    }  
+});  
+jQuery.fn.shake = function (intShakes /*Amount of shakes*/, intDistance /*Shake distance*/, intDuration /*Time duration*/) {
+    this.each(function () {
+        var jqNode = $(this);
+        jqNode.css({ position: 'relative' });
+        for (var x = 1; x <= intShakes; x++) {
+            if(5 < Math.random()*10) {
+                jqNode.animate({ left: (intDistance * -1) }, (((intDuration / intShakes) / 4)))
+                .animate({ left: intDistance }, ((intDuration / intShakes) / 2))
+                .animate({ left: 0 }, (((intDuration / intShakes) / 4)));
+            } else {
+                jqNode.animate({ top: (intDistance * -1) }, (((intDuration / intShakes) / 4)))
+                .animate({ top: intDistance }, ((intDuration / intShakes) / 2))
+                .animate({ top: 0 }, (((intDuration / intShakes) / 4)));
+            }
+        }
+    });
+    return this;
+}
+
+$("#blogTitle span").mouseover(function(){
+$(this).shake(5*Math.random(), 15*Math.random(), 1000*Math.random());
+})
+
+const txt = 'THANKS';
+	const viscosity = 0.005;
+	const stiffness = 0.99;
+	class Point {
+		constructor (i, x, y) {
+			this.c = null;
+			this.x0 = x;
+			this.y0 = y;
+			this.x = x + Math.sin(i) * 100;
+			this.y = y + Math.cos(i) * 100;
+			this.vx = 0.0;
+			this.vy = 0.0;
+			this.a = 0.0;
+			this.s = 0.0;
+			this.p0 = this;
+			this.p1 = this;
+			this.t = 0;
+		}
+		texture (c, color) {
+			this.c = document.createElement("canvas");
+			const ctx = this.c.getContext("2d");
+			this.c.width = this.c.height = 400;
+			ctx.font = "500px Arial Black, Arial";
+			ctx.fillStyle = color;
+			ctx.textAlign = "center";
+			ctx.fillText(c, 200, 385);
+		}
+		drawSegment() {
+			ctx.beginPath();
+			ctx.strokeStyle = "#666";
+			ctx.moveTo(this.p0.x, this.p0.y);
+			ctx.lineTo(this.x, this.y);
+			ctx.lineTo(this.p1.x, this.p1.y);
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.arc(this.x, this.y, 3, 0, 2 * Math.PI);
+			ctx.stroke();
+		}
+		draw () {
+			const fx = (this.x0 - this.x) * viscosity;
+			const fy = (this.y0 - this.y) * viscosity;
+			this.vx *= stiffness;
+			this.vy *= stiffness;
+			this.vx += fx;
+			this.vy += fy;
+			this.x += this.vx;
+			this.y += this.vy;
+			if (this.c !== null) {
+				ctx.beginPath();
+				ctx.save();
+				ctx.translate(this.x, this.y);
+				const dy = this.p1.x - this.p0.x;
+				const dx = this.p1.y - this.p0.y;
+				this.a = Math.atan2(dx, dy);
+				this.s = Math.sqrt(dy * dy + dx * dx) / 2;
+				ctx.rotate(this.a);
+				ctx.drawImage(this.c, -this.s * 0.5, -this.s * 0.5, this.s, this.s);
+				ctx.restore();
+			}
+		}
+	}
+	const points = [];
+	const canvas = {
+		init() {
+			this.elem = document.createElement("canvas");
+			document.body.appendChild(this.elem);
+			this.resize();
+			window.addEventListener("resize", () => this.resize(), false);
+			return this.elem.getContext("2d");
+		},
+		resize() {
+			this.width = this.elem.width = this.elem.offsetWidth;
+			this.height = this.elem.height = this.elem.offsetHeight;
+			let x = 0;
+			const sx = this.width / (txt.length + 1);
+			for (const p of points) {
+				p.x0 = x;
+				p.y0 = canvas.height / 2;
+				x += sx;
+			}
+		}
+	};
+	const ctx = canvas.init();
+	ctx.imageSmoothingEnabled = true;
+	const pointer = {
+		x: 0,
+		y: 0,
+		dx: 0,
+		dy: 0,
+		drag: null,
+		over: null,
+		down(e, touch) {
+			this.move(e, touch);
+			if (this.over) {
+				this.dx = this.x - this.over.x;
+				this.dy = this.y - this.over.y;
+				this.drag = this.over;
+				canvas.elem.style.cursor = "move";
+			}
+		},
+		up(e, touch) {
+			this.drag = null;
+			canvas.elem.style.cursor = "default";
+		},
+		move(e, touch) {
+			const pointer = touch ? e.targetTouches[0] : e;
+			this.x = pointer.clientX;
+			this.y = pointer.clientY;
+			this.over = null;
+			if (this.drag === null) {
+				for (const p of points) {
+					const dx = this.x - p.x;
+					const dy = this.y - p.y;
+					const d = Math.sqrt(dx * dx + dy * dy);
+					if (d < p.s * 0.5) {
+						canvas.elem.style.cursor = "pointer";
+						this.over = p;
+						break;
+					} else {
+						canvas.elem.style.cursor = "default";
+					}
+				}
+			}
+		},
+		init() {
+			window.addEventListener("mousedown", e => this.down(e, false), false);
+			window.addEventListener("touchstart", e => this.down(e, true), false);
+			window.addEventListener("mousemove", e => this.move(e, false), false);
+			canvas.elem.addEventListener("touchmove", e => this.move(e, true), false);
+			window.addEventListener("mouseup", e => this.up(e, false), false);
+			window.addEventListener("touchend", e => this.up(e, true), false);
+		}
+	};
+	{
+		let x = 0;
+		const sx = canvas.width / (txt.length + 1);
+		for (let i = 0; i < txt.length + 2; i++) {
+			points.push(new Point(i, x, canvas.height / 2));
+			x += sx;
+		}
+		for (let i = 1; i < txt.length + 1; i++) {
+			const p = points[i];
+			p.p0 = points[i - 1];
+			p.p1 = points[i + 1];
+			p.s = sx;
+			p.texture(txt.charAt(i - 1), i === 5 ? "#f80" : "#fff");
+		}
+	}
+	const run = () => {
+		requestAnimationFrame(run);
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		for (const p of points) {
+			if (pointer.drag === p) {
+				p.x = pointer.x - pointer.dx;
+				p.y = pointer.y - pointer.dy;
+			}
+			p.draw();
+		}
+		for (const p of points) {
+			p.drawSegment();
+		}
+	}
+	pointer.init();
+	run();	
+</script>
+<script>
+$(".toggleBackCls").click(function(){
+var backurl1 = "https://images2018.cnblogs.com/blog/1348134/201808/1348134-20180809164956043-1160023081.jpg";
+var backurl2 = "https://images2018.cnblogs.com/blog/1348134/201808/1348134-20180810091059829-1105630129.jpg";
+var backurl3 = "https://images2018.cnblogs.com/blog/1348134/201808/1348134-20180810091105789-1559480364.jpg";
+var backurl4 = "https://images2018.cnblogs.com/blog/1348134/201808/1348134-20180810091118340-2054625643.jpg";
+var backurl5 = "https://images2018.cnblogs.com/blog/1348134/201808/1348134-20180810091124302-821821908.jpg";
+var backurl6 = "https://images2018.cnblogs.com/blog/1348134/201808/1348134-20180810092257221-558066876.jpg";
+$(this).css("display", "none");
+var toggleFlag = true;
+$("canvas")[1].style.transitionProperty = "opacity";
+$("canvas")[1].style.transitionDuration = "2s";
+var toggleInterval = setInterval(function(){
+if($("canvas")[1].style.opacity == 0.3) {
+toggleFlag = true;
+$("canvas")[1].style.opacity = Number($("canvas")[1].style.opacity) + 0.1;
+} else  if($("canvas")[1].style.opacity == 1) {
+toggleFlag = false;
+if(1 == Math.ceil(Math.random()*12/2)){
+var totoggleurl =backurl1; 
+} else if(2 == Math.ceil(Math.random()*12/2)){
+var totoggleurl =backurl2;
+} else if(3 == Math.ceil(Math.random()*12/2)){
+var totoggleurl = backurl3
+} else if(4 == Math.ceil(Math.random()*12/2)){
+var totoggleurl = backurl4;
+} else if(5 == Math.ceil(Math.random()*12/2)){
+var totoggleurl = backurl5;
+} else {
+var totoggleurl = backurl6;
+}
+$("body").css("background-image",  "url('" + totoggleurl  + "')") ;
+$("canvas")[1].style.opacity = Number($("canvas")[1].style.opacity) - 0.1;
+} else if(!toggleFlag) {
+$("canvas")[1].style.opacity = Number($("canvas")[1].style.opacity) - 0.1;
+} else if(toggleFlag) {
+$("canvas")[1].style.opacity = Number($("canvas")[1].style.opacity) + 0.1;
+}
+
+}, 500);
+});
+</script>

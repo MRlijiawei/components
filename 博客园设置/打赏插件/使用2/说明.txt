@@ -1,0 +1,17 @@
+使用方法：在引入之前，配置
+<script>
+window.tctipConfig = {
+        imagePrefix: "https://files.cnblogs.com/files/kdy11/",
+        cssPrefix:     "https://files.cnblogs.com/files/kdy11",
+        buttonImageId:  4,
+        buttonTip:  "dashang",
+        list:{
+            alipay: {qrimg: "http://lijwsunyt.web3v.com/imgs/alipy.jpg"},
+            weixin:{qrimg: "http://lijwsunyt.web3v.com/imgs/wechat.jpg"},
+redpacket:{qrimg: "http://lijwsunyt.web3v.com/imgs/redpacket.jpg"}
+        }
+};
+</script>
+
+https://blog-static.cnblogs.com/files/kdy11/tctip.min.js
+https://blog-static.cnblogs.com/files/ljwsyt/tc.js

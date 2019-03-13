@@ -1,0 +1,142 @@
+#site_nav_under {
+display: none;
+}
+/* 目录 */
+#navCategory {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+    background: #ffffff;
+    max-width: 250px;
+    border: 10px solid #b0d9f9;
+    border-radius: 20px;
+    padding: 10px;
+}
+.c_ad_block, .ad_text_commentbox {
+display: none;
+margin: 0;
+padding: 0;
+}
+#ad_under_google {
+height: 0;
+overflow: hidden;
+}
+#ad_under_google a {
+display: none;
+}
+#home {
+margin: 0 auto;
+width: 65%;
+min-width: 950px;
+background-color: #fff;
+padding: 30px;
+margin-top: 30px;
+margin-bottom: 50px;
+box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+}
+#blogTitle {
+height: 60px;
+clear: both;
+}
+#navigator {
+font-size: 13px;
+border-bottom: 1px solid #ededed;
+border-top: 1px solid #ededed;
+height: 50px;
+clear: both;
+margin-top: 25px;
+}
+#blogTitle h2 {
+font-weight: normal;
+font-size: 18px;
+font-size: 1.18571429rem;
+line-height: 2.546153846;
+color: #757575;
+float: left;
+}
+
+body{
+background-image:url("https://images2018.cnblogs.com/blog/1348134/201808/1348134-20180809162905395-2105336004.gif");
+ background-image:url("https://images2018.cnblogs.com/blog/1348134/201808/1348134-20180809164956043-1160023081.jpg"); 
+background-repeat:no-repeat;
+background-size:100%;
+background-attachment: fixed;
+filter:alpha(opacity=90); -moz-opacity:0.9; -khtml-opacity: 0.9; opacity: 0.9;
+    font-size: 16px;
+-webkit-transition: opacity 3s ease-in-out;
+    				-moz-transition: opacity 3s ease-in-out;
+    				-o-transition: opacity 3s ease-in-out;
+    				transition: opacity 3s ease-in-out;
+
+}
+
+#blogTitle h1 a, #blogTitle h2 {
+        color: #b79dc7;
+        font-family: "微软雅黑";
+        text-shadow: 3px 3px 3px #32d9ec;
+    }
+
+canvas {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	user-select: none;
+	background: #000;
+}
+.toggleBackCls {
+float: right;
+    margin-right: -400px;
+    color: green;
+}
+
+#hiddenAp {
+display:none;
+    position: fixed;
+    width: 400px;
+    height: 600px;
+    background-color: beige;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -300px;
+z-index:1002;
+
+    border-radius: 20px;
+}
+
+#showAp {
+text-align: center;
+    margin: 10px;
+    color: red;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#apImg {
+width:100%;
+height:100%;
+}
+
+#hideAp {
+    width: 30%;
+    margin-top: 10px;
+    height: 34px;
+    margin-left: 140px;
+border: 2px solid gray;
+    border-radius: 17px;
+cursor: pointer;
+}
+
+#bgloading {
+            display:none;
+position:fixed;
+            top:0%;
+            left:0%;
+            width:100%;
+            height:100%;
+            background-color:black;
+            z-index:1001;
+            -moz-opacity:0.7;
+            opacity:0.7;
+            filter:alpha(opacity=70);
+        }
