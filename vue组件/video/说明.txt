@@ -1,0 +1,38 @@
+1.父组件调用和响应示例
+<kingdom-video
+                  style="width: 100%; height: 510px"
+                  v-if="fileTypes.videoSufs.indexOf(showContent.fileType.toLowerCase()) > -1 && videoDone"
+                  :videoObj="showContent"
+                  :playObj="learnInfo"
+                  @videoOperate="videoOperate"></kingdom-video>
+
+components: {
+    kingdomVideo: () => import('@/components/VideoPlay/indexVideo')
+  }
+
+    videoOperate(studySecond, currentTime) {
+      console.log('下发')
+      console.log(this.learnInfo)
+      this.learnInfo['learnDuration'] += studySecond
+      const totalEfTime = this.learnInfo['effectiveDuration'] + studySecond
+      // 有效时长如果大于总时长
+      totalEfTime > this.learnInfo['totalDuration'] ? this.learnInfo['effectiveDuration'] = this.learnInfo['totalDuration'] : this.learnInfo['effectiveDuration'] = totalEfTime
+      this.learnInfo['lastTimeSign'] = currentTime
+      this.learnInfo['learnRate'] = (this.learnInfo['effectiveDuration'] / this.learnInfo['totalDuration']).toFixed(4)
+      // 学时是累积的，无修改，只有添加
+      addLearnDuration({
+        contentId: this.learnInfo.contentId,
+        // 后端判断总时间？？？有效时长加上后超出则后端自动取总时长？？？
+        effectiveDuration: studySecond,
+        // 统一使用秒
+        lastTimeSign: currentTime + '',
+        learnDuration: studySecond,
+        totalDuration: this.learnInfo.totalDuration,
+        // 获取用户id？？？
+        userId: 'string'
+      }).then(() => {
+      // addLearnDuration(this.learnInfo).then(() => {
+        refreshLearnDuration()
+      })
+    }
+
