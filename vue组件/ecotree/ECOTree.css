@@ -1,0 +1,85 @@
+.maingroup {
+    position: absolute;
+    width: 980px;
+    height: 570px;
+    overflow: scroll;
+}
+
+.maindiv {
+    position: relative;
+    width: 980px;
+    height: 570px;
+    overflow: scroll;
+}
+
+.econode {
+    position: absolute;
+    text-overflow: clip;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: xx-small;
+    padding: 2px;
+}
+
+.econode input {
+    border: 1px solid #949494;
+}
+
+a.ecolink:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a.ecolink:hover {
+    text-decoration: underline;
+}
+
+.over_cls {
+    width: 170px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.template_textarea_cls {
+    width: 70%;
+    height: 86px;
+    border: 1px solid #ff8282;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: white;
+}
+
+.template_textarea_type_cls {
+    width: 60%;
+}
+
+.template_type_cls {
+    padding: 3px 9px;
+    color: #e000ff;
+    font-size: 14px;
+    border: 1px solid #ffc100;
+    margin-left: 5%;
+    background-color: white;
+}
+
+.template_type_cls2 {
+    padding: 3px 9px;
+    color: #e000ff;
+    font-size: 12px;
+    border: 1px solid #ffc100;
+    margin-left: 5%;
+    background-color: white;
+    height: 100%;
+    overflow: auto;
+}
+
+.template_score_cls {
+    padding: 3px;
+    margin-top: 1px;
+    color: #e000ff;
+    font-size: 14px;
+    border: 1px solid #ffc100;
+    margin-left: 5%;
+    text-align: center;
+    background-color: white;
+}
